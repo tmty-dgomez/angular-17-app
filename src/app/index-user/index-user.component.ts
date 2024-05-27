@@ -28,8 +28,17 @@ export class IndexUsersComponent implements OnInit {
       console.log("Conectado al servidor");
     });
 
-    socket.on("update:users", () => {
+    socket.on("prueba:emit", () => {
+      console.log("Conectado al sokect");
       this.index();
+    });
+    
+    socket.on("disconnect", () => {
+      console.log("Desconectado del servidor");
+    });
+
+    socket.on("usuario:llegado", (message: string) => {
+      console.log(message);
     });
   }
 
@@ -45,4 +54,7 @@ export class IndexUsersComponent implements OnInit {
     });
   }
 
+  OnSelectUser(UserName: string): void {
+    console.log("Nombre del usuario es: "+ UserName); 
+  }
 }
