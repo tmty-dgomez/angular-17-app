@@ -30,7 +30,6 @@ export class IndexUsersComponent implements OnInit {
 
     socket.on("prueba:emit", () => {
       console.log("Conectado al sokect");
-      this.index();
     });
     
     socket.on("disconnect", () => {
@@ -39,6 +38,7 @@ export class IndexUsersComponent implements OnInit {
 
     socket.on("usuario:llegado", (message: string) => {
       console.log(message);
+      this.index();
     });
   }
 
